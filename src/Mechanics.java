@@ -76,17 +76,17 @@ public class Mechanics {
         String output = "Name: ";
         output += Resume.userName + "\n\n" + "Education: \n";
         for (String object : Resume.education){
-            output += object + "\n";
+            output += "\u2022 " + object + "\n";
         }
         output += "\nWork Experience: \n";
         for (String object : Resume.work){
-            output += object + "\n";
+            output += "\u2022 " + object + "\n";
         }
-        output += "\nSkillsets - \n";
+        output += "\nSkillsets:";
         Set set = Resume.skills.entrySet();
         for (Object aSet : set) {
             Map.Entry mentry = (Map.Entry) aSet;
-            output += "Skill: " + mentry.getKey() + "\nRating: " + mentry.getValue() + "\n";
+            output += "\u2022 " + mentry.getKey() + ", " + mentry.getValue() + "\n";
         }
         return output;
     }
