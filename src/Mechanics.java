@@ -1,3 +1,6 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
@@ -82,12 +85,18 @@ public class Mechanics {
         for (String object : Resume.work){
             output += "\u2022 " + object + "\n";
         }
-        output += "\nSkillsets:";
+        output += "\nSkillsets:\n";
         Set set = Resume.skills.entrySet();
         for (Object aSet : set) {
             Map.Entry mentry = (Map.Entry) aSet;
             output += "\u2022 " + mentry.getKey() + ", " + mentry.getValue() + "\n";
         }
         return output;
+    }
+
+    protected static void writeToFile(String output) throws FileNotFoundException {
+        PrintWriter printer = new PrintWriter("newfile.txt");
+        printer.println(output);
+        printer.close();
     }
 }
